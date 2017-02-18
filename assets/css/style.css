@@ -1,0 +1,11 @@
+section {
+	border: 5px solid #000;
+}
+
+div {
+	border: 2px solid #666;
+}
+
+#button-restart {
+	display: none;
+}
