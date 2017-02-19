@@ -2,10 +2,6 @@ section {
 	border: 5px solid #000;
 }
 
-div {
-	border: 2px solid #666;
-}
-
 #button-restart {
 	display: none;
 }
@@ -20,9 +16,17 @@ div {
 }
 
 .character-container {
-	border: 1px solid red;
+	border: 1px solid #000;
 	text-align: center;
 }
+
+// .selected-character {
+// 	border: 1px solid green;
+// }
+
+// .enemy-character {
+// 	border: 1px solid red;
+// }
 
 #your-character {
 	display: flex;
@@ -32,4 +36,14 @@ div {
 #your-enemies {
 	display: flex;
 	justify-content: space-around;
+}
+
+#fight-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#game-message {
+	text-align: center;
 }
