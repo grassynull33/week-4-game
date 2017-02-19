@@ -9,3 +9,27 @@ div {
 #button-restart {
 	display: none;
 }
+
+.character-photo {
+	display: block;
+}
+
+#character-selection {
+	display: flex;
+	justify-content: space-around;
+}
+
+.character-container {
+	border: 1px solid red;
+	text-align: center;
+}
+
+#your-character {
+	display: flex;
+	justify-content: space-around;
+}
+
+#your-enemies {
+	display: flex;
+	justify-content: space-around;
+}
