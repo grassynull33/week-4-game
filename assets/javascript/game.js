@@ -1,33 +1,33 @@
 var characters = {
 	abe: {
 		name: "Abe",
-		healthPoints: 10,
+		healthPoints: 100,
 		attackPower: 10,
-		counterAttackPower: 10,
+		counterAttackPower: 60,
 		photo: "http://placehold.it/200?text=Abe",
 	},
 
 	ben: {
 		name: "Ben",
-		healthPoints: 30,
+		healthPoints: 300,
 		attackPower: 10,
-		counterAttackPower: 5,
+		counterAttackPower: 80,
 		photo: "http://placehold.it/200?text=Ben",
 	},
 
 	carl: {
 		name: "Carl",
-		healthPoints: 18,
+		healthPoints: 180,
 		attackPower: 10,
-		counterAttackPower: 25,
+		counterAttackPower: 125,
 		photo: "http://placehold.it/200?text=Carl",
 	},
 
 	david: {
 		name: "David",
-		healthPoints: 18,
-		attackPower: 10,
-		counterAttackPower: 8,
+		healthPoints: 250,
+		attackPower: 50,
+		counterAttackPower: 100,
 		photo: "http://placehold.it/200?text=David",
 	}
 };
@@ -57,7 +57,8 @@ function renderFromStart() {
 		characterName.addClass("character-name");
 		characterPhoto.attr("src", value.photo);
 		characterPhoto.addClass("character-photo");
-		characterHealth.text(value.healthPoints);
+		characterHealth.attr("max-health", value.healthPoints);
+		characterHealth.text(value.healthPoints + "/" + characterHealth.attr("max-health"));
 		characterHealth.addClass("character-health");
 		characterContainer.append(characterName);
 		characterContainer.append(characterPhoto);
@@ -124,6 +125,7 @@ $(document).ready(function() {
 				if(selectedDefenderHealth - yourAttackDamage >= 0) {
 					selectedCharacterHealth = selectedCharacterHealth - defenderCounterAttack;
 				}
+				console.log(selectedCharacterHealth);
 		
 				// //html attr: new health value after your attack
 				$(".selected-character").attr("health", selectedCharacterHealth);
@@ -137,8 +139,8 @@ $(document).ready(function() {
 				$("#game-message").html("You attacked " + defName + " for " + yourAttackDamage + " damage.<br>" + defName + " attacked you back for " + defenderCounterAttack + " damage.");
 
 				//update HP
-				$(".selected-defender > .character-health").text(selectedDefenderHealth);
-				$(".selected-character > .character-health").text(selectedCharacterHealth);
+				$(".selected-defender > .character-health").text(selectedDefenderHealth + "/" + $(".selected-defender > .character-health").attr("max-health"));
+				$(".selected-character > .character-health").text(selectedCharacterHealth + "/" + $(".selected-character > .character-health").attr("max-health"));
 				yourAttackDamage = parseInt(yourAttackDamage) + parseInt(yourAttackPower);
 			} 
 
