@@ -1,34 +1,34 @@
 var characters = {
 	abe: {
-		name: "Abe",
+		name: "Walt",
 		healthPoints: 100,
 		attackPower: 10,
 		counterAttackPower: 60,
-		photo: "http://placehold.it/200?text=Abe",
+		photo: "assets/images/walt.png",
 	},
 
-	ben: {
-		name: "Ben",
-		healthPoints: 300,
-		attackPower: 10,
+	skyler: {
+		name: "Skyler",
+		healthPoints: 1000,
+		attackPower: 100,
 		counterAttackPower: 80,
-		photo: "http://placehold.it/200?text=Ben",
+		photo: "assets/images/skylar.png",
 	},
 
-	carl: {
-		name: "Carl",
+	jesse: {
+		name: "Jesse",
 		healthPoints: 180,
 		attackPower: 10,
 		counterAttackPower: 125,
-		photo: "http://placehold.it/200?text=Carl",
+		photo: "assets/images/jesse.png",
 	},
 
-	david: {
-		name: "David",
+	gus: {
+		name: "Gus",
 		healthPoints: 250,
 		attackPower: 50,
 		counterAttackPower: 100,
-		photo: "http://placehold.it/200?text=David",
+		photo: "assets/images/gus.png",
 	}
 };
 
@@ -55,14 +55,14 @@ function renderFromStart() {
 		var characterContainer = $("<div>");
 		characterName.text(value.name);
 		characterName.addClass("character-name");
-		characterPhoto.attr("src", value.photo);
-		characterPhoto.addClass("character-photo");
 		characterHealth.attr("max-health", value.healthPoints);
 		characterHealth.text(value.healthPoints + "/" + characterHealth.attr("max-health"));
 		characterHealth.addClass("character-health");
+		characterPhoto.attr("src", value.photo);
+		characterPhoto.addClass("character-photo");
 		characterContainer.append(characterName);
-		characterContainer.append(characterPhoto);
 		characterContainer.append(characterHealth);
+		characterContainer.append(characterPhoto);
 		$("#character-selection").append(characterContainer);
 		characterContainer.addClass("character-container");
 		characterContainer.attr("id", value.name.toLowerCase());
@@ -77,8 +77,19 @@ function renderFromStart() {
 $(document).ready(function() {
 	renderFromStart();
 
+	
+	$("#character-header").css("display", "none");
+	$("#enemies-header").css("display", "none");
+	$("#fight-section-header").css("display", "none");
+	$("#fight-section").css("display", "none");
+	//$("#defender-header").css("display", "none");
+	$("#button-attack").css("display", "none");
+
 	$(document).on("click", ".character-container", function() {
 		if(!characterSelected) {
+			$("#selection-header").css("display", "none");
+			$("#character-header").css("display", "block");
+			$("#enemies-header").css("display", "block");
 			$(this).addClass("selected-character");
 			characterSelected = true;
 			$("#your-character").append($(".selected-character"));
@@ -87,6 +98,7 @@ $(document).ready(function() {
 
 			//health of you and your opponent initilized and also your character name
 			selectedCharacterHealth = $(".selected-character").attr("health");
+			//console.log(selectedCharacterHealth);
 			selectedCharacterName = $(".selected-character").attr("id");
 			//for loop where if characters are determined to not be user-selected, marked with an class "enemy-character" and also appended to the enemy section
 			$.each(characters, function(key, value) {
@@ -101,6 +113,9 @@ $(document).ready(function() {
 
 	$(document).on("click", ".enemy-character", function() {
 		if(!defenderSelected) {
+			$("#fight-section-header").css("display", "block");
+			$("#fight-section").css("display", "flex");
+			$("#defender-header").css("display", "block");
 			$(this).addClass("selected-defender");
 			defenderSelected = true;
 			$("#defender").append($(".selected-defender"));
@@ -108,10 +123,17 @@ $(document).ready(function() {
 			defenderCounterAttack = $(".selected-defender").attr("counter");
 			selectedDefenderHealth = $(".selected-defender").attr("health");
 			$("#game-message").html("");
+			$("#button-attack").css("display", "initial");
+		}
+
+		//console.log($("#your-enemies").text());
+		if($("#your-enemies").text().length === 0) {
+			$("#enemies-header").css("display", "none");
 		}
 	});
 
 	$("#button-attack").on("click", function() {
+		$("#game-message").css("display", "block");
 		if($("#defender").text().length === 0) {
 			$("#game-message").html("No enemy here!");
 		} else {
@@ -122,11 +144,12 @@ $(document).ready(function() {
 				//js tracking of your health
 				//you only get dinged if your next blow does not kill
 				
-				if(selectedDefenderHealth - yourAttackDamage >= 0) {
+				if(selectedDefenderHealth >= 0) {
 					selectedCharacterHealth = selectedCharacterHealth - defenderCounterAttack;
 				}
-				console.log(selectedCharacterHealth);
-		
+				// console.log(selectedCharacterHealth);
+				// console.log(selectedDefenderHealth);
+				// console.log(yourAttackDamage);
 				// //html attr: new health value after your attack
 				$(".selected-character").attr("health", selectedCharacterHealth);
 
@@ -146,7 +169,8 @@ $(document).ready(function() {
 
 			if(selectedCharacterHealth <= 0) {
 				$("#game-message").text("You have been defeated... GAME OVER!");
-				$("#button-restart").css("display", "initial");
+				$("#button-restart").css("display", "block");
+				$("#button-attack").css("display", "none");
 			} else if(selectedDefenderHealth <= 0) {
 				var nameArr = selectedDefenderName.split("");
 
@@ -163,7 +187,10 @@ $(document).ready(function() {
 
 			if($("#defender").text().length === 0 && $("#your-enemies").text().length === 0) {
 				$("#game-message").html("You won!!! Game over!");
-				$("#button-restart").css("display", "initial");
+				$("#button-restart").css("display", "block");
+				$("#button-attack").css("display", "none");
+				$("#enemies-header").css("display", "none");
+				//$("#defender-header").css("display", "none");
 			}
 		}
 	});
@@ -175,6 +202,15 @@ $(document).ready(function() {
 		$("#defender").html("");
 		$("#game-message").html("");
 		$("#button-restart").css("display", "none");
+		$("#game-message").css("display", "none");
+
+		$("#selection-header").css("display", "block");
+		$("#character-header").css("display", "none");
+		$("#enemies-header").css("display", "none");
+		$("#fight-section-header").css("display", "none");
+		$("#fight-section").css("display", "none");
+		$("#defender-header").css("display", "none");
+		$("#button-attack").css("display", "none");
 		characterSelected = false;
 		defenderSelected = false;
 		renderFromStart();

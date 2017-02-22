@@ -1,6 +1,51 @@
-section {
-	border: 5px solid #000;
+html,body {
+    background: url("../images/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+    font-family: sans-serif;
 }
+
+.header-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.content-container {
+	max-width: 960px;
+	margin: auto;
+}
+
+h1 {
+	font-size: 40px;
+	color: #fff;
+	border-width: 3px;
+	border-color: rgb(255, 255, 255);
+	border-style: solid;
+	background-image: -moz-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	background-image: -webkit-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	background-image: -ms-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
+	margin: 20px;
+	padding: 15px;
+	text-align: center;
+	width: 200px;
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 20px;
+	margin: 10px;
+	color: #fff;
+	font-style: italic;
+}
+
+// section {
+// 	border: 5px solid #000;
+// }
 
 #button-restart {
 	display: none;
@@ -8,42 +53,110 @@ section {
 
 .character-photo {
 	display: block;
+	width: 100%;
+	height: auto;
 }
 
 #character-selection {
 	display: flex;
 	justify-content: space-around;
+	background: rgba(0,0,0,.45);
 }
 
 .character-container {
-	border: 1px solid #000;
-	text-align: center;
+	border-width: 3px;
+	border-color: rgb(255, 255, 255);
+	border-style: solid;
+	background-image: -moz-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	background-image: -webkit-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	background-image: -ms-linear-gradient( 140deg, rgb(40,74,19) 0%, rgb(98,169,119) 100%);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
+	max-width: 200px;
+	max-height: 200px;
+	cursor: pointer;
+	cursor: hand;
+	margin: 20px;
+}
+
+.character-name {
+	  font-size: 28px;
+	  color: #fff;
+	  line-height: 2;
+	  margin-left: 15px;
+}
+
+.character-health {
+	  font-size: 18px;
+	  color: #fff;
+	  float: right;
+	  position: relative;
+	  top: 5px;
+	  right: 5px;
 }
 
 // .selected-character {
 // 	border: 1px solid green;
 // }
 
-// .enemy-character {
-// 	border: 1px solid red;
-// }
+.enemy-character {
+	background-image: -moz-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
+	background-image: -webkit-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
+	background-image: -ms-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
+}
+
+.selected-character {
+	cursor: default;
+}
+
+.selected-defender {
+	background-image: -moz-linear-gradient( 140deg, rgb(72,8,32) 0%, rgb(158,19,19) 100%);
+	background-image: -webkit-linear-gradient( 140deg, rgb(72,8,32) 0%, rgb(158,19,19) 100%);
+	background-image: -ms-linear-gradient( 140deg, rgb(72,8,32) 0%, rgb(158,19,19) 100%);
+	cursor: default;
+}
 
 #your-character {
 	display: flex;
 	justify-content: space-around;
+	background: rgba(0,0,0,.45);
 }
 
 #your-enemies {
 	display: flex;
 	justify-content: space-around;
+	background: rgba(0,0,0,.45);
 }
 
 #fight-section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background: rgba(0,0,0,.45);
+	padding: 20px;
 }
 
 #game-message {
 	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	display: none;
+	margin: 20px;
+}
+
+#button-attack {
+	background: yellow;
+	color: #000;
+	border: none;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 15px;
+}
+
+#button-restart {
+	background: #fff;
+	color: #000;
+	border: none;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 15px;
 }
