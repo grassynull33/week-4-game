@@ -102,6 +102,19 @@ h2 {
 	background-image: -moz-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
 	background-image: -webkit-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
 	background-image: -ms-linear-gradient( 140deg, rgb(74,19,23) 0%, rgb(255,192,0) 100%);
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.enemy-character>.character-name {
+	  font-size: 20px;
+	  color: #fff;
+	  line-height: 2;
+	  margin-left: 15px;
+}
+
+.enemy-character>.character-health {
+	  font-size: 12px;
 }
 
 .selected-character {
@@ -113,6 +126,19 @@ h2 {
 	background-image: -webkit-linear-gradient( 140deg, rgb(72,8,32) 0%, rgb(158,19,19) 100%);
 	background-image: -ms-linear-gradient( 140deg, rgb(72,8,32) 0%, rgb(158,19,19) 100%);
 	cursor: default;
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.selected-defender>.character-name {
+	  font-size: 28px;
+	  color: #fff;
+	  line-height: 2;
+	  margin-left: 15px;
+}
+
+.selected-defender>.character-health {
+	  font-size: 18px;
 }
 
 #your-character {

@@ -1,33 +1,33 @@
 var characters = {
 	abe: {
 		name: "Walt",
-		healthPoints: 100,
-		attackPower: 10,
-		counterAttackPower: 60,
+		healthPoints: 280,
+		attackPower: 30,
+		counterAttackPower: 35,
 		photo: "assets/images/walt.png",
 	},
 
 	skyler: {
 		name: "Skyler",
-		healthPoints: 1000,
-		attackPower: 100,
-		counterAttackPower: 80,
+		healthPoints: 200,
+		attackPower: 25,
+		counterAttackPower: 15,
 		photo: "assets/images/skylar.png",
 	},
 
 	jesse: {
 		name: "Jesse",
 		healthPoints: 180,
-		attackPower: 10,
-		counterAttackPower: 125,
+		attackPower: 20,
+		counterAttackPower: 10,
 		photo: "assets/images/jesse.png",
 	},
 
 	gus: {
 		name: "Gus",
 		healthPoints: 250,
-		attackPower: 50,
-		counterAttackPower: 100,
+		attackPower: 35,
+		counterAttackPower: 30,
 		photo: "assets/images/gus.png",
 	}
 };
