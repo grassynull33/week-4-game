@@ -4,7 +4,7 @@ var characters = {
 		healthPoints: 280,
 		attackPower: 30,
 		counterAttackPower: 35,
-		photo: "assets/images/walt.png",
+		photo: "assets/images/walt.png"
 	},
 
 	skyler: {
@@ -12,7 +12,7 @@ var characters = {
 		healthPoints: 200,
 		attackPower: 25,
 		counterAttackPower: 15,
-		photo: "assets/images/skylar.png",
+		photo: "assets/images/skylar.png"
 	},
 
 	jesse: {
@@ -20,7 +20,7 @@ var characters = {
 		healthPoints: 180,
 		attackPower: 20,
 		counterAttackPower: 10,
-		photo: "assets/images/jesse.png",
+		photo: "assets/images/jesse.png"
 	},
 
 	gus: {
@@ -28,7 +28,7 @@ var characters = {
 		healthPoints: 250,
 		attackPower: 35,
 		counterAttackPower: 30,
-		photo: "assets/images/gus.png",
+		photo: "assets/images/gus.png"
 	}
 };
 
